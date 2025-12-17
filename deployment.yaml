@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tanisha-web-deployment
+  labels:
+    app: tanisha-web
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: tanisha-web
+  template:
+    metadata:
+      labels:
+        app: tanisha-web
+    spec:
+      containers:
+      - name: web-container
+        image: nginx:alpine
+        ports:
+        - containerPort: 80
